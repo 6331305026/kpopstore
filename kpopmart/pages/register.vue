@@ -7,8 +7,8 @@
           <router-link to="/" class="d-flex align-center">
             <v-img
               src="/logo.svg"
-              max-height="50px"
-              max-width="50px"
+              max-height="150px"
+              max-width="150px"
               alt="logo"
               contain
               class="me-3"
