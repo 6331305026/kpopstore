@@ -272,7 +272,7 @@
 </template>
 
 <script>
-const URL = "http://selab.mfu.ac.th:7426";
+// const URL = "http://selab.mfu.ac.th:7426";
 export default {
   data: () => ({
     dialog: false,
@@ -358,7 +358,7 @@ export default {
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
-  background-image: url("/bgkp3.png");
+  background-image: url("/bg-shop.png");
 }
 .pop-up {
   width: 450px;
