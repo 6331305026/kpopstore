@@ -56,7 +56,7 @@ export default {
   proxy: {
     '/api': {
       // target: 'http://selab.mfu.ac.th:8309/',
-      target: 'http://127.0.0.1:8080/',
+      target: 'http://127.0.0.1:8081/',
       pathRewrite: {
         '^/api': '/',
         changeOrigin: true
