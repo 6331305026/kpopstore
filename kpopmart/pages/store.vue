@@ -31,16 +31,16 @@
               <v-img
                 class="white--text align-end"
                 height="200px"
-                :src="prd.product_image"
+                :src="prd.pic"
               >
               </v-img>
-              <v-card-title class="pb-2 justify-space-between">{{ prd.product_name }}
+              <v-card-title class="pb-2 justify-space-between">{{ prd.name }}
                 <v-chip
                 color="#9293FF"
                 link
                 outlined
                 small
-                >{{ prd.category_name }}</v-chip>
+                >{{ prd.band.bandName }}</v-chip>
               </v-card-title>
             <!-- <v-card-subtitle class="pb-0">
              <v-chip
@@ -52,11 +52,11 @@
             </v-card-subtitle> -->
               <v-card-subtitle class="pb-2">
                 <div class="product-ttp">
-                  <h4 class="font-weight-bold">$ {{ prd.product_totalprice }}</h4>
+                  <h4 class="font-weight-bold">$ {{ prd.price }}</h4>
                 </div>
                 <div class="product-fp">
                   <h4 class="font-weight-bold text-decoration-line-through">
-                    $ {{ prd.product_fullprice }}
+                    $ {{ prd.price}}
                   </h4>
                 </div>
               </v-card-subtitle>
@@ -168,9 +168,11 @@
 </template>
 
 <script>
-const URL = "http://selab.mfu.ac.th:7426";
+// const URL = "http://selab.mfu.ac.th:7426";
+import Axios from "axios";
 export default {
   data: () => ({
+    info: [],
     search: "",
     products: [],
     filterDex: [],
@@ -179,7 +181,7 @@ export default {
   watch: {
     search(val) {
       this.filterDex = this.products.filter((prd) => {
-        return prd.product_name.indexOf(val) != -1;
+        return prd.name.indexOf(val) != -1;
       });
     },
   },
@@ -190,10 +192,14 @@ export default {
 
   methods: {
     async initialize() {
-      console.log("initialize");
-      const res = await this.$axios.get(URL + "/api/products");
-      this.products = res.data.data;
-      this.filterDex = this.products;
+      Axios.get('/api/products').then((res) => {
+                this.info = res.data
+                console.log(this.info)
+                this.products = res.data;
+                console.log(this.products)
+                this.filterDex = this.products;
+                console.log(this.filterDex)
+            }) 
     },
 
     addcart(prd) {
@@ -201,11 +207,11 @@ export default {
       console.log(JSON.parse(myCart))
       if (myCart) {
         let arr = JSON.parse(myCart)
-        arr.push(prd.product_id)
+        arr.push(prd.id)
         console.log('add cart', arr)
         localStorage.setItem('myCart', `[${arr}]`);
       } else {
-        localStorage.setItem('myCart', `[${prd.product_id}]`);
+        localStorage.setItem('myCart', `[${prd.id}]`);
       }
       this.$store.commit("addcart", prd);
     },

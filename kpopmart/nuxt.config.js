@@ -21,7 +21,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/logo2.svg' }
     ]
   },
-
+  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -47,8 +47,21 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://localhost:3000',
+    proxy: true,
+    // prefix: '/api/',
+    // credentials: true
+  },
+
+  proxy: {
+    '/api': {
+      // target: 'http://selab.mfu.ac.th:8309/',
+      target: 'http://127.0.0.1:8080/',
+      pathRewrite: {
+        '^/api': '/',
+        changeOrigin: true
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

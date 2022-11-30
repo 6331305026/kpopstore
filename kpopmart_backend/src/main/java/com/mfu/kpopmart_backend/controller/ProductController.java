@@ -68,6 +68,7 @@ public class ProductController {
 	  
 	  if(oldProductData.isPresent()) {
 		  Product updatedProductData = oldProductData.get();
+		  updatedProductData.setPic(newProductData.getPic());
 		  updatedProductData.setName(newProductData.getName());
 		  updatedProductData.setDesc(newProductData.getDesc());
 		  updatedProductData.setPrice(newProductData.getPrice());

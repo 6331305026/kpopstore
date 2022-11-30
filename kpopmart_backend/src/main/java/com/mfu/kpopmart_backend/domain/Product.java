@@ -13,6 +13,9 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="PRODUCT_ID")
 	private Long id;
+
+	@Column(name="PRODUCT_PIC")
+	private String pic;
 	
 	@Column(name="PRODUCT_NAME")
 	private String name;
@@ -34,14 +37,15 @@ public class Product {
 	
 	public Product() {}
 
-	public Product(Long id, String name, String desc, String price) {
+	public Product(Long id, String pic, String name, String desc, String price) {
 		this.id = id;
+		this.pic = pic;
 		this.name = name;
 		this.desc = desc;
 		this.price = price;
 	}
-	public Product(String name, String desc, String price) {
-		this(null,name,desc,price);
+	public Product(String pic, String name, String desc, String price) {
+		this(null,pic,name,desc,price);
 	}
 	
 	public Long getId() {
@@ -50,6 +54,14 @@ public class Product {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
 	public String getName() {
