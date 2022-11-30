@@ -21,7 +21,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/logo2.svg' }
     ]
   },
-
+  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -52,7 +52,7 @@ export default {
     // prefix: '/api/',
     // credentials: true
   },
-  
+
   proxy: {
     '/api': {
       // target: 'http://selab.mfu.ac.th:8309/',

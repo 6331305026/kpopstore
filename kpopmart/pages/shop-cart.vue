@@ -336,7 +336,6 @@ export default {
       localStorage.setItem('myCart', `[${arr}]`);
       this.initialize()
 
-      
       // console.log('delll', item.product_id)
     },
     // getTotalPrice(){
