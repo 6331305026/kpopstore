@@ -52,6 +52,7 @@ export default {
     // prefix: '/api/',
     // credentials: true
   },
+  
   proxy: {
     '/api': {
       // target: 'http://selab.mfu.ac.th:8309/',

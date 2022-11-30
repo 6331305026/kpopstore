@@ -201,8 +201,6 @@ export default {
                 this.filterDex = this.products;
                 console.log(this.filterDex)
             }) 
-
-
     },
 
     addcart(prd) {
