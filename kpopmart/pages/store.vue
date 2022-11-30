@@ -62,8 +62,11 @@
               </v-card-subtitle>
 
               <v-card-actions class="justify-space-between">
-                <v-btn class="cute ml-2 px-6" color="#9293FF" dark small :to="{ name: 'product-view', params: { pid: prd.product_id }, }"
+                <!-- <v-btn class="cute ml-2 px-6" color="#9293FF" dark small :to="{ name: 'product-view', params: { pid: prd.id }, }"
                 >View
+                </v-btn> -->
+                <v-btn class="cute ml-2 px-6" color="#9293FF" dark small :to="{ name: 'payment', params: { pid: prd.id }, }"
+                >Buy
                 </v-btn>
                 <div class="btn">
                     <v-btn icon class="" color="#9293FF" dark rounded outlined @click="addcart(prd)">
